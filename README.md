@@ -1,7 +1,8 @@
 # shopping_client
 
 > a project built for ITSS course
-
+> client side built by Vue <3
+> link demo https://colorlib.com/preview/#amado
 ## Build Setup
 
 ``` bash
