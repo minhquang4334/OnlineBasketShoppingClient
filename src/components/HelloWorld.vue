@@ -292,13 +292,33 @@ export default {
     }
   },
   components: {
-    Cart, 
+    Cart,
     Checkout,
     Product,
     Shop
   },
+
+  mounted() {
+    var proCata = $('.amado-pro-catagory');
+    console.log(proCata)
+    var singleProCata = ".single-products-catagory";
+    if ($.fn.imagesLoaded) {
+      proCata.imagesLoaded(function () {
+        proCata.isotope({
+          itemSelector: singleProCata,
+          percentPosition: true,
+          masonry: {
+            columnWidth: singleProCata
+          }
+        });
+        console.log(proCata)
+
+      });
+    }
+  }
 }
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
