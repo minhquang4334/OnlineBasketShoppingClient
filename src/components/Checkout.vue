@@ -49,10 +49,10 @@
             <nav class="amado-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="product-details.html">Product</a></li>
-                    <li><router-link :to="{name:'Cart'}">Cart</router-link></li>
-                    <li class="active"><router-link :to="{name:'Checkout'}">Checkout</router-link></li>
+                    <li><router-link :to="{name:'Shop'}" class="nav-link">Shop</router-link></li>
+                    <li><router-link :to="{name:'Product'}" class="nav-link">Product</router-link></li>
+                    <li><router-link :to="{name:'Cart'}" class="nav-link">Cart</router-link></li>
+                    <li class="active"><router-link :to="{name:'Checkout'}" class="nav-link">Checkout</router-link></li>
                 </ul>
             </nav>
             <!-- Button Group -->
@@ -62,7 +62,7 @@
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-                <router-link :to="{name:'Checkout'}"><img src="static/img/core-img/cart.png" alt="">Checkout</router-link><span>(0)</span>
+                <router-link :to="{name:'Cart'}" class="nav-link"><img src="static/img/core-img/cart.png" alt=""> Cart <span>(0)</span></router-link>
                 <a href="#" class="fav-nav"><img src="static/img/core-img/favorites.png" alt=""> Favourite</a>
                 <a href="#" class="search-nav"><img src="static/img/core-img/search.png" alt=""> Search</a>
             </div>
@@ -101,16 +101,18 @@
                                         <input type="email" class="form-control" id="email" placeholder="Email" value="">
                                     </div>
                                     <div class="col-12 mb-3">
-                                        <select class="w-100" id="country">
-                                        <option value="usa">United States</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="ger">Germany</option>
-                                        <option value="fra">France</option>
-                                        <option value="ind">India</option>
-                                        <option value="aus">Australia</option>
-                                        <option value="bra">Brazil</option>
-                                        <option value="cana">Canada</option>
-                                    </select>
+                                        <div class="nice-select w-100" tabindex="0"><span class="current">United States</span>
+                                            <ul class="list">
+                                                <li data-value="usa" class="option selected focus">United States</li>
+                                                <li data-value="uk" class="option">United Kingdom</li>
+                                                <li data-value="ger" class="option">Germany</li>
+                                                <li data-value="fra" class="option">France</li>
+                                                <li data-value="ind" class="option">India</li>
+                                                <li data-value="aus" class="option">Australia</li>
+                                                <li data-value="bra" class="option">Brazil</li>
+                                                <li data-value="cana" class="option">Canada</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div class="col-12 mb-3">
                                         <input type="text" class="form-control mb-3" id="street_address" placeholder="Address" value="">
@@ -230,10 +232,10 @@
                                             <a class="nav-link" href="index.html">Home</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="shop.html">Shop</a>
+                                            <router-link :to="{name:'Shop'}" class="nav-link">Shop</router-link>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="product-details.html">Product</a>
+                                            <router-link :to="{name:'Product'}" class="nav-link">Product</router-link>
                                         </li>
                                         <li class="nav-item">
                                             <router-link :to="{name:'Cart'}" class="nav-link">Cart</router-link>
@@ -256,6 +258,8 @@
 
 <script>
 import Cart from '@/components/Cart'
+import Shop from '@/components/Shop'
+import Product from '@/components/Product'
 export default {
     data(){
         return {
@@ -264,7 +268,9 @@ export default {
     },
     components: { 
         Cart,
-    },
+        Shop,
+        Product
+    }
 }
 </script>
 

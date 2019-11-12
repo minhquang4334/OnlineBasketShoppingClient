@@ -48,11 +48,11 @@
                 <!-- Amado Nav -->
                 <nav class="amado-nav">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="product-details.html">Product</a></li>
-                        <li class="active"><a href="cart.html">Cart</a></li>
-                        <li><router-link :to="{name:'Checkout'}">Checkout</router-link></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><router-link :to="{name:'Shop'}" class="nav-link">Shop</router-link></li>
+                    <li><router-link :to="{name:'Product'}" class="nav-link">Product</router-link></li>
+                    <li class="active"><router-link :to="{name:'Cart'}" class="nav-link">Cart</router-link></li>
+                    <li><router-link :to="{name:'Checkout'}" class="nav-link">Checkout</router-link></li>
                     </ul>
                 </nav>
                 <!-- Button Group -->
@@ -62,7 +62,7 @@
                 </div>
                 <!-- Cart Menu -->
                 <div class="cart-fav-search mb-100">
-                    <a href="cart.html" class="cart-nav"><img src="static/img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
+                    <router-link :to="{name:'Cart'}" class="nav-link"><img src="static/img/core-img/cart.png" alt=""> Cart <span>(0)</span></router-link>
                     <a href="#" class="fav-nav"><img src="static/img/core-img/favorites.png" alt=""> Favourite</a>
                     <a href="#" class="search-nav"><img src="static/img/core-img/search.png" alt=""> Search</a>
                 </div>
@@ -235,10 +235,10 @@
                                                 <a class="nav-link" href="index.html">Home</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="shop.html">Shop</a>
+                                                <router-link :to="{name:'Shop'}" class="nav-link">Shop</router-link>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="product-details.html">Product</a>
+                                                <router-link :to="{name:'Product'}" class="nav-link">Product</router-link>
                                             </li>
                                             <li class="nav-item active">
                                                 <router-link :to="{name:'Cart'}" class="nav-link">Cart</router-link>

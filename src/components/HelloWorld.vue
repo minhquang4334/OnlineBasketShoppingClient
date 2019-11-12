@@ -49,8 +49,8 @@
       <nav class="amado-nav">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="product-details.html">Product</a></li>
+          <li><router-link :to="{name:'Shop'}">Shop</router-link></li>
+          <li><router-link :to="{name:'Product'}">Product</router-link></li>
           <li><router-link :to="{name:'Cart'}">Cart</router-link></li>
           <li><router-link :to="{name:'Checkout'}">Checkout</router-link></li>
         </ul>
@@ -62,7 +62,7 @@
       </div>
       <!-- Cart Menu -->
       <div class="cart-fav-search mb-100">
-        <router-link :to="{name:'Cart'}"><img src="/static/img/core-img/cart.png" alt="">Cart</router-link><span>(0)</span>
+        <router-link :to="{name:'Cart'}"><img src="static/img/core-img/cart.png" alt=""> Cart <span>(0)</span></router-link>
         <a href="#" class="fav-nav"><img src="/static/img/core-img/favorites.png" alt=""> Favourite</a>
         <a href="#" class="search-nav"><img src="/static/img/core-img/search.png" alt=""> Search</a>
       </div>
@@ -82,7 +82,7 @@
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/1.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -90,12 +90,12 @@
               <p>From $180</p>
               <h4>Modern Chair</h4>
             </div>
-          </a>
+          </router-link>
         </div>
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/2.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -103,12 +103,12 @@
               <p>From $180</p>
               <h4>Minimalistic Plant Pot</h4>
             </div>
-          </a>
+          </router-link>
         </div>
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/3.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -116,12 +116,12 @@
               <p>From $180</p>
               <h4>Modern Chair</h4>
             </div>
-          </a>
+          </router-link>
         </div>
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/4.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -129,12 +129,12 @@
               <p>From $180</p>
               <h4>Night Stand</h4>
             </div>
-          </a>
+          </router-link>
         </div>
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/5.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -142,12 +142,12 @@
               <p>From $18</p>
               <h4>Plant Pot</h4>
             </div>
-          </a>
+          </router-link>
         </div>
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/6.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -155,12 +155,12 @@
               <p>From $320</p>
               <h4>Small Table</h4>
             </div>
-          </a>
+          </router-link>
         </div>
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/7.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -168,12 +168,12 @@
               <p>From $318</p>
               <h4>Metallic Chair</h4>
             </div>
-          </a>
+          </router-link>
         </div>
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/8.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -181,12 +181,12 @@
               <p>From $318</p>
               <h4>Modern Rocking Chair</h4>
             </div>
-          </a>
+          </router-link>
         </div>
 
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-          <a href="shop.html">
+          <router-link :to="{name:'Shop'}">
             <img src="/static/img/bg-img/9.jpg" alt="">
             <!-- Hover Content -->
             <div class="hover-content">
@@ -194,7 +194,7 @@
               <p>From $318</p>
               <h4>Home Deco</h4>
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -252,21 +252,21 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="footerNavContent">
                   <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="product-details.html">Product</a>
-                    </li>
-                    <li class="nav-item">
-                      <router-link :to="{name:'Cart'}" class="nav-link">Cart</router-link>
-                    </li>
-                    <li class="nav-item">
-                      <router-link :to="{name:'Checkout'}" class="nav-link">Checkout</router-link>
-                    </li>
+                      <li class="nav-item active">
+                          <a class="nav-link" href="index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <router-link :to="{name:'Shop'}" class="nav-link">Shop</router-link>
+                      </li>
+                      <li class="nav-item">
+                          <router-link :to="{name:'Product'}" class="nav-link">Product</router-link>
+                      </li>
+                      <li class="nav-item">
+                          <router-link :to="{name:'Cart'}" class="nav-link">Cart</router-link>
+                      </li>
+                      <li class="nav-item">
+                          <router-link :to="{name:'Checkout'}" class="nav-link">Checkout</router-link>
+                      </li>
                   </ul>
                 </div>
               </nav>
@@ -282,6 +282,8 @@
 <script>
 import Cart from '@/components/Cart'
 import Checkout from '@/components/Checkout'
+import Shop from '@/components/Shop'
+import Product from '@/components/Product'
 export default {
   name: 'HelloWorld',
   data () {
@@ -291,7 +293,9 @@ export default {
   },
   components: {
     Cart, 
-    Checkout
+    Checkout,
+    Product,
+    Shop
   },
 }
 </script>
