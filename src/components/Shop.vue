@@ -27,7 +27,8 @@
         <div class="mobile-nav">
             <!-- Navbar Brand -->
             <div class="amado-navbar-brand">
-                <a href="index.html"><img src="static/img/core-img/logo.png" alt=""></a>
+<!--                <h2>Censored</h2>-->
+                    <h2>Censored</h2>
             </div>
             <!-- Navbar Toggler -->
             <div class="amado-navbar-toggler">
@@ -35,46 +36,7 @@
             </div>
         </div>
 
-        <!-- Header Area Start -->
-        <header class="header-area clearfix">
-            <!-- Close Icon -->
-            <div class="nav-close">
-                <i class="fa fa-close" aria-hidden="true"></i>
-            </div>
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html"><img src="static/img/core-img/logo.png" alt=""></a>
-            </div>
-            <!-- Amado Nav -->
-            <nav class="amado-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li  class="active"><router-link :to="{name:'Shop'}" class="nav-link">Shop</router-link></li>
-                    <li><router-link :to="{name:'Product'}" class="nav-link">Product</router-link></li>
-                    <li><router-link :to="{name:'Cart'}" class="nav-link">Cart</router-link></li>
-                    <li><router-link :to="{name:'Checkout'}" class="nav-link">Checkout</router-link></li>
-                </ul>
-            </nav>
-            <!-- Button Group -->
-            <div class="amado-btn-group mt-30 mb-100">
-                <a href="#" class="btn amado-btn mb-15">%Discount%</a>
-                <a href="#" class="btn amado-btn active">New this week</a>
-            </div>
-            <!-- Cart Menu -->
-            <div class="cart-fav-search mb-100">
-                <router-link :to="{name:'Cart'}" class="nav-link"><img src="static/img/core-img/cart.png" alt=""> Cart <span>(0)</span></router-link>
-                <a href="#" class="fav-nav"><img src="static/img/core-img/favorites.png" alt=""> Favourite</a>
-                <a href="#" class="search-nav"><img src="static/img/core-img/search.png" alt=""> Search</a>
-            </div>
-            <!-- Social Button -->
-            <div class="social-info d-flex justify-content-between">
-                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </div>
-        </header>
-        <!-- Header Area End -->
+        <left-bar/>
 
         <div class="shop_sidebar_area">
 
@@ -464,57 +426,17 @@
     </section>
     <!-- ##### Newsletter Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer_area clearfix">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Single Widget Area -->
-                <div class="col-12 col-lg-4">
-                    <div class="single_widget_area">
-                        <!-- Logo -->
-                        <div class="footer-logo mr-50">
-                        <a href="index.html"><img src="static/img/core-img/logo2.png" alt=""></a>
-                        </div>
-                        <!-- Copywrite Text -->
-                        <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
-                <!-- Single Widget Area -->
-                <div class="col-12 col-lg-8">
-                    <div class="single_widget_area">
-                        <!-- Footer Menu -->
-                        <div class="footer_menu">
-                            <nav class="navbar navbar-expand-lg justify-content-end">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                                <div class="collapse navbar-collapse" id="footerNavContent">
-                                        <ul class="navbar-nav ml-auto">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="index.html">Home</a>
-                                            </li>
-                                            <li class="nav-item active">
-                                                <router-link :to="{name:'Shop'}" class="nav-link">Shop</router-link>
-                                            </li>
-                                            <li class="nav-item">
-                                                <router-link :to="{name:'Product'}" class="nav-link">Product</router-link>
-                                            </li>
-                                            <li class="nav-item">
-                                                <router-link :to="{name:'Cart'}" class="nav-link">Cart</router-link>
-                                            </li>
-                                            <li class="nav-item">
-                                                <router-link :to="{name:'Checkout'}" class="nav-link">Checkout</router-link>
-                                            </li>
-                                        </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area End ##### -->
+    <footer/>
+      <div class="single-products-catagory clearfix" v-for="(model, index) in list">
+        <router-link :to="{name:'Shop'}">
+          <img :src="getLink(model.image.url)" :alt="model.name">
+          <!-- Hover Content -->
+          <div class="hover-content">
+            <div class="line"></div>
+            <h4>{{model.name}}</h4>
+          </div>
+        </router-link>
+      </div>
     </div>
 </template>
 
@@ -522,6 +444,8 @@
 import Cart from '@/components/Cart'
 import Checkout from '@/components/Checkout'
 import Product from '@/components/Product'
+import LeftBar from "./LeftBar"
+import Footer from "./Footer"
 export default {
     data(){
         return {
@@ -531,7 +455,9 @@ export default {
     components: { 
         Cart,
         Checkout,
-        Product
+        Product,
+      Footer,
+      LeftBar
     }
 }
 </script>
