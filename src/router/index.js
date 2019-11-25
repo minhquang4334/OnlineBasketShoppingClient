@@ -6,6 +6,7 @@ import Checkout from '@/components/Checkout'
 import Shop from '@/components/Shop'
 import Product from '@/components/Product'
 import Login from '@/components/Login'
+import LandingPage from '@/components/Landingpage'
 
 Vue.use(Router)
 
@@ -16,6 +17,12 @@ export default new Router({
       name: 'HelloWorld',
       component: HelloWorld
     },
+    {
+      path: '/landing-page',
+      name: 'LandingPage',
+      component: LandingPage
+    },
+
     {
       path: '/cart', 
       name: 'Cart',
