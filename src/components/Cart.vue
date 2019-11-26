@@ -61,7 +61,7 @@
                                                 <a href="#"><img src="static/img/bg-img/cart1.jpg" alt="Product"></a>
                                             </td>
                                             <td class="cart_product_desc">
-                                                <h5>White Modern Chair</h5>
+                                                <h5>White Modern Basket</h5>
                                             </td>
                                             <td class="price">
                                                 <span>$130</span>

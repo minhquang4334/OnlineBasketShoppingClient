@@ -47,8 +47,8 @@
                                 <ol class="breadcrumb mt-50">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                                     <li class="breadcrumb-item"><a href="#">Furniture</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Chairs</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">white modern chair</li>
+                                    <li class="breadcrumb-item"><a href="#">Baskets</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">white modern Basket</li>
                                 </ol>
                             </nav>
                         </div>
@@ -100,7 +100,7 @@
                                     <div class="line"></div>
                                     <p class="product-price">$180</p>
                                     <router-link :to="{name:'Product'}">
-                                        <h6>White Modern Chair</h6>
+                                        <h6>White Modern Basket</h6>
                                     </router-link>
                                     <!-- Ratings & Review -->
                                     <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">

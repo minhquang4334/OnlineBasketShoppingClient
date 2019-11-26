@@ -138,7 +138,7 @@
                                     <div class="line"></div>
                                     <p class="product-price">$180</p>
                                     <router-link :to="{name:'Product'}" class="nav-link">
-                                        <h6>Modern Chair</h6>
+                                        <h6>Modern Basket</h6>
                                     </router-link>
                                 </div>
                                 <!-- Ratings & Cart -->
@@ -175,7 +175,7 @@
                                     <div class="line"></div>
                                     <p class="product-price">$180</p>
                                     <router-link :to="{name:'Shop'}" class="nav-link">
-                                        <h6>Modern Chair</h6>
+                                        <h6>Modern Basket</h6>
                                     </router-link>
                                 </div>
                                 <!-- Ratings & Cart -->
@@ -212,7 +212,7 @@
                                     <div class="line"></div>
                                     <p class="product-price">$180</p>
                                     <router-link :to="{name:'Product'}" class="nav-link">
-                                        <h6>Modern Chair</h6>
+                                        <h6>Modern Basket</h6>
                                     </router-link>
                                 </div>
                                 <!-- Ratings & Cart -->
@@ -249,7 +249,7 @@
                                     <div class="line"></div>
                                     <p class="product-price">$180</p>
                                     <router-link :to="{name:'Product'}" class="nav-link">
-                                        <h6>Modern Chair</h6>
+                                        <h6>Modern Basket</h6>
                                     </router-link>
                                 </div>
                                 <!-- Ratings & Cart -->
@@ -286,7 +286,7 @@
                                     <div class="line"></div>
                                     <p class="product-price">$180</p>
                                     <router-link :to="{name:'Product'}" class="nav-link">
-                                        <h6>Modern Chair</h6>
+                                        <h6>Modern Basket</h6>
                                     </router-link>
                                 </div>
                                 <!-- Ratings & Cart -->
@@ -323,7 +323,7 @@
                                     <div class="line"></div>
                                     <p class="product-price">$180</p>
                                     <router-link :to="{name:'Product'}" class="nav-link">
-                                        <h6>Modern Chair</h6>
+                                        <h6>Modern Basket</h6>
                                     </router-link>
                                 </div>
                                 <!-- Ratings & Cart -->
