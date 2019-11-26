@@ -37,34 +37,16 @@
 
     <left-bar/>
 
-    <div class="products-catagories-area clearfix">
-      <div class="container d-flex align-items-center">
-        <div class="row">
-          <div class="product-item col-sm-3 col-md-4" v-for="(model, index) in list" :key="index">
-            <div class="card text-center" style="width: 18rem;">
-              <img class="card-img-top" :src="getLink(model.image.url)" :alt="model.name">
-              <div class="card-body">
-                <h5 class="card-title">{{ model.name }}</h5>
-                <p class="card-text">{{ model.description }}</p>
-                <router-link :class="'btn btn-primary'" :to="{name:'Product', params: {id: model.id}}">Detail</router-link>
-                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Product Catagories Area Start -->
-    <!-- <div class="products-catagories-area clearfix">
-      <div class="amado-pro-catagory clearfix"> -->
+    <div class="products-catagories-area clearfix">
+      <div class="amado-pro-catagory clearfix">
 
         <!-- Single Catagory -->
-        <!-- <div class="single-products-catagory clearfix" v-for="(model, index) in list">
+        <div class="single-products-catagory clearfix" v-for="(model, index) in list">
           <router-link :to="{name:'Product', params: {id: model.id}}">
-            <img :src="getLink(model.image.url)" :alt="model.name"> -->
+            <img :src="getLink(model.image.url)" :alt="model.name">
             <!-- Hover Content -->
-            <!-- <div class="hover-content">
+            <div class="hover-content">
               <div class="line"></div>
               <h4>{{model.name}}</h4>
             </div>
@@ -72,7 +54,7 @@
         </div>
 
       </div>
-    </div> -->
+    </div>
     <!-- Product Catagories Area End -->
   </div>
   <!-- ##### Main Content Wrapper End ##### -->
@@ -103,7 +85,6 @@
   <!-- ##### Newsletter Area End ##### -->
 
   <!-- ##### Footer Area Start ##### -->
-  <footer/>
   </div>
 </template>
 
@@ -116,7 +97,7 @@ import {get} from '../helper/request'
 import LeftBar from "./LeftBar"
 import Footer from "./Footer"
 export default {
-  name: 'HelloWorld',
+  name: 'Index',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -177,20 +158,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.products-catagories-area {
-  margin-top: 100px;
-}
 
-.product-item {
-  margin-top: 50px;
-}
-
-.product-item img {
-  height: 200px;
-  width: auto;
-}
-
-.product-item .card-text {
-  height: 100px;
-}
 </style>
