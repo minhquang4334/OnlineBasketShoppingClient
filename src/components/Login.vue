@@ -91,7 +91,7 @@ export default {
               duration: 5000,
               speed: 1000
             });
-            this.$router.push({name: 'Index'});
+            this.$router.push({name: 'shop'});
 
           })
           .catch(() => {

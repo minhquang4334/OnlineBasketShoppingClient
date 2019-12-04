@@ -27,7 +27,7 @@
             <div class="mobile-nav">
                 <!-- Navbar Brand -->
                 <div class="amado-navbar-brand">
-                    <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="Shop"><img src="img/core-img/logo.png" alt=""></a>
                 </div>
                 <!-- Navbar Toggler -->
                 <div class="amado-navbar-toggler">
@@ -133,6 +133,60 @@
                                             <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                                         </div>
                                     </div>
+                                    <div class="widget brands mb-50">
+                                        <!-- Widget Title -->
+                                        <h6 class="widget-title mb-30">Size</h6>
+
+                                        <div class="widget-desc">
+                                            <!-- Single Form Check -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="S">
+                                                <label class="form-check-label" for="S">S</label>
+                                            </div>
+                                            <!-- Single Form Check -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="M">
+                                                <label class="form-check-label" for="M">M</label>
+                                            </div>
+                                            <!-- Single Form Check -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="L">
+                                                <label class="form-check-label" for="L">L</label>
+                                            </div>
+                                            <!-- Single Form Check -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="O">
+                                                <label class="form-check-label" for="O">O</label>
+                                            </div>
+                                            <!-- Single Form Check -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="XL">
+                                                <label class="form-check-label" for="XL">XL</label>
+                                            </div>
+                                            <!-- Single Form Check -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="XXL">
+                                                <label class="form-check-label" for="XXL">XXL</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget color mb-50">
+                                        <!-- Widget Title -->
+                                        <h6 class="widget-title mb-30">Color</h6>
+
+                                        <div class="widget-desc">
+                                            <ul class="d-flex">
+                                                <li><a href="#" class="color1"></a></li>
+                                                <li><a href="#" class="color2"></a></li>
+                                                <li><a href="#" class="color3"></a></li>
+                                                <li><a href="#" class="color4"></a></li>
+                                                <li><a href="#" class="color5"></a></li>
+                                                <li><a href="#" class="color6"></a></li>
+                                                <li><a href="#" class="color7"></a></li>
+                                                <li><a href="#" class="color8"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                     <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
                                 </form>
 
@@ -140,6 +194,71 @@
                         </div>
                     </div>
                 </div>
+                <div class="row bootstrap snippets">
+                <div class="col-md-6 col-md-offset-2 col-sm-12">
+                    <div class="comment-wrapper">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                Comment panel
+                            </div>
+                            <div class="panel-body">
+                                <textarea class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                                <br>
+                                <button type="button" class="btn btn-info pull-right">Post</button>
+                                <div class="clearfix"></div>
+                                <hr>
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <a href="#" class="pull-left">
+                                            <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="text-muted pull-right">
+                                                <small class="text-muted">30 min ago</small>
+                                            </span>
+                                            <strong class="text-success">@MartinoMont</strong>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor sit amet, <a href="#">#consecteturadipiscing </a>.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#" class="pull-left">
+                                            <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="text-muted pull-right">
+                                                <small class="text-muted">30 min ago</small>
+                                            </span>
+                                            <strong class="text-success">@LaurenceCorreil</strong>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                Lorem ipsum dolor <a href="#">#ipsumdolor </a>adipiscing elit.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <a href="#" class="pull-left">
+                                            <img src="https://bootdey.com/img/Content/user_3.jpg" alt="" class="img-circle">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="text-muted pull-right">
+                                                <small class="text-muted">30 min ago</small>
+                                            </span>
+                                            <strong class="text-success">@JohnNida</strong>
+                                            <p>
+                                                Lorem ipsum dolor <a href="#">#sitamet</a> sit amet, consectetur adipiscing elit.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             </div>
             <!-- Product Details Area End -->
         </div>
@@ -196,5 +315,40 @@ export default {
 </script>
 
 <style scoped>
+    .form-check {
+    position: relative;
+    display: inline-block;
+    }
+    
+    .form-check-label {
+        padding-right: 1.25rem;
+        padding-left: 1px;
+        margin-bottom: 0;
+    }
+    
+    body{margin-top:20px;}
 
+    .comment-wrapper .panel-body {
+        max-height:650px;
+        overflow:auto;
+    }
+
+    .comment-wrapper .media-list .media img {
+        width:64px;
+        height:64px;
+        border:2px solid #e5e7e8;
+    }
+
+    .comment-wrapper .media-list .media {
+        border-bottom:1px dashed #efefef;
+        margin-bottom:25px;
+    }
+    
+    @media (min-width: 768px)
+    .col-md-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 </style>
