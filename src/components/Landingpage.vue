@@ -41,7 +41,7 @@
             
             <div class="col-6 col-xl-2">
               <h1 class="mb-0 site-logo">
-                <router-link :to="{name:'HelloWorld'}" class="amado-navbar-brand">
+                <router-link :to="{name:'Shop'}" class="amado-navbar-brand">
                     <h2>Censored</h2>
                 </router-link>
               </h1>
@@ -51,7 +51,7 @@
 
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                   <li>
-                    <router-link :to="{name:'HelloWorld'}" class="nav-link ">
+                    <router-link :to="{name:'Shop'}" class="nav-link">
                         Home
                     </router-link>
                   </li>
@@ -81,9 +81,8 @@
                   <h1>Shop With Us</h1>
                   <p class="mb-5 lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam assumenda ea quo cupiditate facere deleniti fuga officia.</p>
                   <div>
-                    <!-- <a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a> -->
-                    <router-link :to="{name:'HelloWorld'}" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">
-                        <h6>Shop Now</h6>
+                    <router-link :to="{name:'Shop'}" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">
+                        Shop Now
                     </router-link>
                     <a href="#" class="btn btn-white py-3 px-5 rounded-0 d-block d-sm-inline-block">Club Membership</a>
                   </div>
@@ -99,7 +98,7 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld'
+import Shop from '@/components/Shop'
 import LeftBar from "./LeftBar"
 import Footer from "./Footer"
 export default {
@@ -112,7 +111,7 @@ export default {
     components: { 
       LeftBar,
       Footer,
-      HelloWorld
+      Shop
     }
 }
 </script>

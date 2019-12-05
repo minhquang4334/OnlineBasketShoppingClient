@@ -12,7 +12,6 @@
     <!-- Amado Nav -->
     <nav class="amado-nav">
       <ul>
-        <li ><router-link :to="{name:'HelloWorld'}">Index</router-link></li>
         <li><router-link :to="{name:'Shop'}">Shop</router-link></li>
         <li><router-link :to="{name:'Product'}">Product</router-link></li>
         <li><router-link :to="{name:'Cart'}">Cart</router-link></li>
@@ -45,14 +44,12 @@
   import Checkout from '@/components/Checkout'
   import Shop from '@/components/Shop'
   import Product from '@/components/Product'
-  import HelloWorld from '@/components/HelloWorld'
   export default {
     components: {
       Cart,
       Checkout,
       Product,
       Shop,
-      HelloWorld,
     },
   }
 </script>
