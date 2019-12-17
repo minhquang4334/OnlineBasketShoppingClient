@@ -53,71 +53,33 @@
                                             <th>Name</th>
                                             <th>Price</th>
                                             <th>Quantity</th>
+                                            <th>Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr v-for="product in order_products">
                                             <td class="cart_product_img">
-                                                <a href="#"><img src="static/img/bg-img/cart1.jpg" alt="Product"></a>
+                                                <a href="#"><img :src="getLink(product.image)" alt="product"></a>
                                             </td>
                                             <td class="cart_product_desc">
-                                                <h5>White Modern Basket</h5>
+                                                <h5>{{product.name}}</h5>
                                             </td>
                                             <td class="price">
-                                                <span>$130</span>
+                                                <span>{{currency.format(product.price)}}</span>
                                             </td>
                                             <td class="qty">
                                                 <div class="qty-btn d-flex">
                                                     <p>Qty</p>
                                                     <div class="quantity">
-                                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
-                                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                                        <span class="qty-minus" @click="changeQty(product, -1)"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                                        <input type="number" class="qty-text" :id="`qty-` + product.id " step="1" min="1" max="300" name="quantity" :value="product.quantity">
+                                                        <span class="qty-plus" @click="changeQty(product, +1)"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cart_product_img">
-                                                <a href="#"><img src="static/img/bg-img/cart2.jpg" alt="Product"></a>
-                                            </td>
-                                            <td class="cart_product_desc">
-                                                <h5>Minimal Plant Pot</h5>
-                                            </td>
-                                            <td class="price">
-                                                <span>$10</span>
-                                            </td>
-                                            <td class="qty">
-                                                <div class="qty-btn d-flex">
-                                                    <p>Qty</p>
-                                                    <div class="quantity">
-                                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty2'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                        <input type="number" class="qty-text" id="qty2" step="1" min="1" max="300" name="quantity" value="1">
-                                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty2'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="cart_product_img">
-                                                <a href="#"><img src="static/img/bg-img/cart3.jpg" alt="Product"></a>
-                                            </td>
-                                            <td class="cart_product_desc">
-                                                <h5>Minimal Plant Pot</h5>
-                                            </td>
-                                            <td class="price">
-                                                <span>$10</span>
-                                            </td>
-                                            <td class="qty">
-                                                <div class="qty-btn d-flex">
-                                                    <p>Qty</p>
-                                                    <div class="quantity">
-                                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty3'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                        <input type="number" class="qty-text" id="qty3" step="1" min="1" max="300" name="quantity" value="1">
-                                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty3'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                          <td class="price">
+                                            <span>{{currency.format(parseInt(product.price) * parseInt(product.quantity))}}</span>
+                                          </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -127,12 +89,12 @@
                             <div class="cart-summary">
                                 <h5>Cart Total</h5>
                                 <ul class="summary-table">
-                                    <li><span>subtotal:</span> <span>$140.00</span></li>
+                                    <li><span>subtotal:</span> <span>{{currency.format(totalPrice)}}</span></li>
                                     <li><span>delivery:</span> <span>Free</span></li>
-                                    <li><span>total:</span> <span>$140.00</span></li>
+                                    <li><span>total:</span> <span>{{currency.format(totalPrice)}}</span></li>
                                 </ul>
                                 <div class="cart-btn mt-100">
-                                    <router-link :to="{name:'Checkout'}" class="btn amado-btn w-100">Checkout</router-link>
+                                    <router-link :to="{name:'Checkout'}" class="btn amado-btn w-100 padding-top-12">Checkout</router-link>
                                 </div>
                             </div>
                         </div>
@@ -179,6 +141,7 @@ export default {
     data(){
         return {
             msg: 'Cart',
+          order_products: []
         }
     },
     components: { 
@@ -186,6 +149,42 @@ export default {
       LeftBar,
       Footer
     },
+  mounted() {
+    this.order_products = this.$store.state.orderList
+    console.log( this.order_products)
+
+  },
+
+  computed: {
+      totalPrice : function () {
+        let total = 0
+        this.order_products.forEach(o => {
+          total += parseInt(o.price) * o.quantity
+        })
+        return total
+      }
+  },
+
+  methods: {
+    changeQty(product, qty) {
+      let re = parseInt(product.quantity) + qty
+      if (re > 0) {
+        product.quantity = re
+      }
+      else {
+        let check = confirm("Are you want to delete this product from cart!!")
+        if(check) {
+          let index = this.order_products.indexOf(product)
+          if(index > -1) {
+            this.order_products.splice(index, 1)
+          } else {
+            alert("Something error !!")
+          }
+        }
+      }
+      window.localStorage.setItem('orderList', JSON.stringify(this.order_products))
+    }
+  }
 }
 </script>
 

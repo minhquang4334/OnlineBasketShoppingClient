@@ -313,6 +313,7 @@ img {
   border: none;
   border-radius: 0;
   padding: 0 7px;
+  padding-top: 12px;
   font-size: 18px;
   line-height: 56px;
   background-color: #fbb710;
@@ -642,8 +643,8 @@ img {
           -webkit-box-flex: 0;
           -ms-flex: 0 0 25%;
           flex: 0 0 25%;
-          width: 25%;
-          max-width: 25%;
+          width: 20%;
+          max-width: 20%;
           font-size: 12px;
           color: #242424;
           text-transform: capitalize;
@@ -665,8 +666,8 @@ img {
           -webkit-box-flex: 0;
           -ms-flex: 0 0 25%;
           flex: 0 0 25%;
-          width: 25%;
-          max-width: 25%; }
+          width: 20%;
+          max-width: 20%; }
           .main-content-wrapper .cart-table-area table tbody tr td h5 {
             font-size: 16px;
             color: #252525; }

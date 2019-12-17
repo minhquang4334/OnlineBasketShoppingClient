@@ -48,7 +48,7 @@
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                                     <li class="breadcrumb-item"><a href="#">Furniture</a></li>
                                     <li class="breadcrumb-item"><a href="#">Baskets</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">white modern Basket</li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{product.name}}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -59,7 +59,7 @@
                             <div class="single_product_thumb">
                                 <div id="product_details_slider" class="carousel slide" data-ride="carousel">
                                     <ol class="carousel-indicators">
-                                        <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url(/static/img/product-img/pro-big-1.jpg);">
+                                        <li class="active" data-target="#product_details_slider" data-slide-to="0" :style="{ 'background-image': 'url(' + getLink(product.image.url) + ')' }">
                                         </li>
                                         <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url(/static/img/product-img/pro-big-2.jpg);">
                                         </li>
@@ -70,8 +70,8 @@
                                     </ol>
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <a class="gallery_img" href="static/img/product-img/pro-big-1.jpg">
-                                                <img class="d-block w-100" src="static/img/product-img/pro-big-1.jpg" alt="First slide">
+                                            <a class="gallery_img" :href="getLink(product.image.url)">
+                                                <img class="d-block w-100" :src="getLink(product.image.url)" alt="First slide">
                                             </a>
                                         </div>
                                         <div class="carousel-item">
@@ -98,9 +98,9 @@
                                 <!-- Product Meta Data -->
                                 <div class="product-meta-data">
                                     <div class="line"></div>
-                                    <p class="product-price">$180</p>
-                                    <router-link :to="{name:'Product'}">
-                                        <h6>White Modern Basket</h6>
+                                    <p class="product-price">{{currency.format(product.price)}}</p>
+                                    <router-link :to="{name:'Product', params: {id: product.id}}">
+                                        <h6>{{product.name}}</h6>
                                     </router-link>
                                     <!-- Ratings & Review -->
                                     <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
@@ -120,16 +120,16 @@
                                 </div>
 
                                 <div class="short_overview my-5">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?</p>
+                                    <p>{{product.description}}</p>
                                 </div>
 
                                 <!-- Add to Cart Form -->
-                                <form class="cart clearfix" method="post">
+                                <div class="cart clearfix">
                                     <div class="cart-btn d-flex mb-50">
                                         <p>Qty</p>
                                         <div class="quantity">
                                             <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
+                                            <input type="number" class="qty-text" id="qty" v-model="quanty" step="1" min="1" max="300" name="quantity" value="1">
                                             <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                                         </div>
                                     </div>
@@ -139,35 +139,30 @@
 
                                         <div class="widget-desc">
                                             <!-- Single Form Check -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="S">
-                                                <label class="form-check-label" for="S">S</label>
+                                            <div class="form-check"  v-for="size in sizes">
+                                                <input class="form-check-input" type="radio" name="psize" :value="size.id" :id="size.size" v-model="selected_size">
+                                                <label class="form-check-label" :for="size.size">{{(size.size)}}</label>
                                             </div>
-                                            <!-- Single Form Check -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="M">
-                                                <label class="form-check-label" for="M">M</label>
-                                            </div>
-                                            <!-- Single Form Check -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="L">
-                                                <label class="form-check-label" for="L">L</label>
-                                            </div>
-                                            <!-- Single Form Check -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="O">
-                                                <label class="form-check-label" for="O">O</label>
-                                            </div>
-                                            <!-- Single Form Check -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="XL">
-                                                <label class="form-check-label" for="XL">XL</label>
-                                            </div>
-                                            <!-- Single Form Check -->
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="XXL">
-                                                <label class="form-check-label" for="XXL">XXL</label>
-                                            </div>
+<!--                                            &lt;!&ndash; Single Form Check &ndash;&gt;-->
+<!--                                            <div class="form-check">-->
+<!--                                                <input class="form-check-input" type="radio" value="M" id="M" name="psize">-->
+<!--                                                <label class="form-check-label" for="M">M</label>-->
+<!--                                            </div>-->
+<!--                                            &lt;!&ndash; Single Form Check &ndash;&gt;-->
+<!--                                            <div class="form-check">-->
+<!--                                                <input class="form-check-input" type="radio" value="L" id="L" name="psize">-->
+<!--                                                <label class="form-check-label" for="L">L</label>-->
+<!--                                            </div>-->
+<!--                                            &lt;!&ndash; Single Form Check &ndash;&gt;-->
+<!--                                            <div class="form-check">-->
+<!--                                                <input class="form-check-input" type="radio" value="XL" id="XL" name="psize">-->
+<!--                                                <label class="form-check-label" for="XL">XL</label>-->
+<!--                                            </div>-->
+<!--                                            &lt;!&ndash; Single Form Check &ndash;&gt;-->
+<!--                                            <div class="form-check">-->
+<!--                                                <input class="form-check-input" type="radio" value="XXL" id="XXL" name="psize">-->
+<!--                                                <label class="form-check-label" for="XXL">XXL</label>-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                     <div class="widget color mb-50">
@@ -176,19 +171,13 @@
 
                                         <div class="widget-desc">
                                             <ul class="d-flex">
-                                                <li><a href="#" class="color1"></a></li>
-                                                <li><a href="#" class="color2"></a></li>
-                                                <li><a href="#" class="color3"></a></li>
-                                                <li><a href="#" class="color4"></a></li>
-                                                <li><a href="#" class="color5"></a></li>
-                                                <li><a href="#" class="color6"></a></li>
-                                                <li><a href="#" class="color7"></a></li>
-                                                <li><a href="#" class="color8"></a></li>
+                                                <li><a class="color4 cursor-pointer" @click="setColor(`Blue`)" :class="selected_color == `Blue` ? `border-color` : ``"></a></li>
+                                                <li><a class="color5 cursor-pointer" @click="setColor(`Red`)" :class="selected_color == `Red` ? `border-color` : ``"></a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
-                                </form>
+                                    <button type="submit" name="addtocart" value="5" class="btn amado-btn" @click="addToCart">Add to cart</button>
+                                </div>
 
                             </div>
                         </div>
@@ -298,19 +287,89 @@ import Checkout from '@/components/Checkout'
 import Shop from '@/components/Shop'
 import LeftBar from "./LeftBar"
 import Footer from "./Footer"
+import {get} from "../helper/request"
 export default {
-    data(){
-        return {
-            msg: 'Product'
-        }
-    },
-    components: { 
-        Cart,
-        Checkout,
-        Shop,
-      LeftBar,
-      Footer
+  data() {
+    return {
+      msg: 'Product',
+      product_id: this.$route.params.id,
+      colors: [],
+      sizes: [],
+      product_details: [],
+      product: {},
+      selected_size: 1,
+      selected_color: "Blue",
+      quanty: 1,
     }
+  },
+  components: {
+    Cart,
+    Checkout,
+    Shop,
+    LeftBar,
+    Footer
+  },
+  mounted() {
+    this.getInfo()
+    this.getProductDetails()
+  },
+
+  methods: {
+    getInfo() {
+      let url = process.env.api_host + '/size_color'
+      get(url).then((res) => {
+        this.colors = res.data.colors
+        this.sizes = res.data.sizes
+      })
+    },
+
+    getProductDetails() {
+      let url = process.env.api_host + '/info?id=' + this.product_id
+      get(url).then((res) => {
+        this.product_details = res.data.model_detail
+        this.product = res.data.model
+      })
+    },
+
+    setColor(color) {
+      this.selected_color = color
+    },
+
+    addToCart() {
+      let quantity = document.getElementById('qty').value
+
+      let order = {
+        name: this.product.name,
+        id: this.product.id,
+        image: this.product.image.url,
+        size: this.selected_size,
+        color: this.selected_color,
+        price: this.product.price,
+        quantity: quantity,
+        model_detail_id: this.product_details[0].id ? this.product_details[0].id : 1
+      }
+      let o =  this.$store.state.orderList.filter((p) => p.id === order.id)
+      if(o.length) {
+        o[0].quantity = parseInt(o[0].quantity) +  parseInt(order.quantity)
+      } else {
+        this.$store.state.orderList.push(order)
+      }
+      window.localStorage.setItem('orderList', JSON.stringify(this.$store.state.orderList))
+      alert("Add this product to cart successfully")
+      console.log( this.$store.state.orderList)
+      this.$notify({
+        group: 'foo',
+        type: 'success',
+        title: 'Add to Cart Success',
+        text: 'Successfully',
+        duration: 3000,
+        speed: 1000
+      });
+      this.$router.push({
+        name: 'Cart'
+      })
+    }
+  }
 }
 </script>
 
@@ -342,6 +401,10 @@ export default {
     .comment-wrapper .media-list .media {
         border-bottom:1px dashed #efefef;
         margin-bottom:25px;
+    }
+
+    .border-color {
+      border: 4px gold solid;
     }
     
     @media (min-width: 768px)

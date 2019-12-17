@@ -13,15 +13,15 @@
     <nav class="amado-nav">
       <ul>
         <li><router-link :to="{name:'Shop'}">Shop</router-link></li>
-        <li><router-link :to="{name:'Product'}">Product</router-link></li>
+<!--        <li><router-link :to="{name:'Product'}">Product</router-link></li>-->
         <li><router-link :to="{name:'Cart'}">Cart</router-link></li>
         <li><router-link :to="{name:'Checkout'}">Checkout</router-link></li>
       </ul>
     </nav>
     <!-- Button Group -->
     <div class="amado-btn-group mt-30 mb-100">
-      <a href="#" class="btn amado-btn mb-15">%Discount%</a>
-      <a href="#" class="btn amado-btn active">New this week</a>
+      <a href="#" class="btn amado-btn mb-15 padding-top-12">%Discount%</a>
+      <a href="#" class="btn amado-btn active padding-top-12">New this week</a>
     </div>
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
@@ -53,3 +53,8 @@
     },
   }
 </script>
+<style>
+  .padding-top-12 {
+    padding-top: 12px;
+  }
+</style>

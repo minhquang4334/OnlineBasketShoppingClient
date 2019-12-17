@@ -387,6 +387,7 @@ img {
     border: none;
     border-radius: 0;
     padding: 0 7px;
+    padding-top: 12px;
     font-size: 18px;
     line-height: 56px;
     background-color: $bg-default;
@@ -582,6 +583,7 @@ img {
         }
         .amado-btn-group {
             .amado-btn {
+                padding-top: 12px;
                 width: 160px;
                 display: block;
             }
@@ -1505,7 +1507,7 @@ img {
                         background-color: #f26e51;
                     }
                     &.color8 {
-                        background-color: #9a8777;
+                        background-color: green;
                     }
                 }
             }
