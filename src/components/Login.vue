@@ -64,7 +64,14 @@ export default {
       password: '',
       fail_msg: '',
       success_msg: '',
+      prevRoute: null
+
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.prevRoute = from
+    })
   },
   methods: {
     login() {
@@ -83,27 +90,11 @@ export default {
         );
         this.$store.dispatch('auth/fetchUser')
           .then(() => {
-            this.$notify({
-              group: 'foo',
-              type: 'success',
-              title: 'Welcome ' + this.$store.state.auth.user.name,
-              text: 'Let Order Your Food',
-              duration: 5000,
-              speed: 1000
-            });
-            this.$router.push({name: 'shop'});
-
+            this.$router.push({path: this.prevRoute.path});
           })
           .catch(() => {
             this.isLogin = false;
-            this.$notify({
-              group: 'foo',
-              type: 'error',
-              title: 'Login Failed',
-              text: 'Something error when login',
-              duration: 5000,
-              speed: 1000
-            });
+            alert('Something error when login')
           });
 
       })

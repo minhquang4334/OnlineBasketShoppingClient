@@ -50,11 +50,9 @@
                             <form action="#" method="post">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" id="first_name" value="" placeholder="First Name" v-model="first_name" required>
+                                        <input type="text" class="form-control" id="first_name" value="" placeholder="Name" v-model="first_name" required>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" id="last_name" value="" placeholder="Last Name" v-model="last_name" required>
-                                    </div>
+
                                     <div class="col-12 mb-3">
                                         <input type="text" class="form-control" id="company" placeholder="Company Name" v-model="company_name" value="">
                                     </div>
@@ -169,7 +167,6 @@ export default {
             msg: 'Checkout',
           order_products: [],
           first_name: '',
-          last_name: '',
           company_name: '',
           email: '',
           address: '',
@@ -190,6 +187,7 @@ export default {
   mounted() {
     this.order_products = this.$store.state.orderList
     console.log( this.order_products)
+    this.checkAuth();
 
   },
 
@@ -203,11 +201,26 @@ export default {
     }
   },
 
+  beforeCreate() {
+  },
+
   methods: {
+      checkAuth() {
+        this.$store.dispatch('auth/fetchUser')
+          .then(() => {
+            let user = this.$store.state.auth.user;
+            this.first_name = user.name
+            this.email = user.email
+            this.phone = user.phone
+            this.address = user.address
+          }).catch(err => {
+          this.$router.push({name: 'Login'});
+        })
+      },
       checkout() {
         let check = confirm("Are you sure to checkout!! total price is: " + this.totalPrice + '$')
         if(check) {
-          if(!(this.first_name && this.last_name && this.email && this.address && this.phone)) {
+          if(!(this.first_name && this.email && this.address && this.phone)) {
             alert("Please fill in checkout form!!");
             return;
           }
@@ -222,7 +235,7 @@ export default {
           })
 
           let payload = {
-            receive_name: this.first_name + ' ' + this.last_name,
+            receive_name: this.first_name,
             company_name: this.company_name,
             email: this.email,
             address: this.address,
